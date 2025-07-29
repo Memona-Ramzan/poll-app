@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting Result</title>
+    <!-- Bootstrap & Font -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f2f3f7, #e8f0fe);
+            padding: 2rem;
+        }
+        .result-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .thank-you {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .result-item {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .result-item strong {
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-container">
+        <div class="text-center thank-you">
+            🎉 Thank You for Voting!
+        </div>
+
+        <div class="section-title">
+            Your Selected Answers:
+        </div>
+
+        <ul class="list-unstyled">
+            {% for choice in selected_choices %}
+                <li class="result-item">
+                    <p><strong>Question:</strong> {{ choice.question.Question_field }}</p>
+                    <p><strong>Your Answer:</strong> {{ choice.choices_field }}</p>
+                    <p><strong>Total Votes:</strong> {{ choice.votes }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
